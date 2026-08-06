@@ -209,7 +209,11 @@ Items: {
 
 	MagicDyeVatItem: {
 		DisplayName: Magic Dye Vat
-		Tooltip: ""
+		Tooltip:
+			'''
+			{$ItemTooltip.DyeVat}
+			33% chance to not consume dye crafting ingredients
+			'''
 	}
 }
 
