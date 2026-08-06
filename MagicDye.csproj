@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!-- Import tModLoader mod properties -->
+	<Import Project="..\tModLoader.targets" />
+
+	<!-- General -->
+	<PropertyGroup>
+	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<!-- References -->
+	<ItemGroup>
+	  <AdditionalFiles Remove="MagicDyeSupplementaries\**" />
+	  <Compile Remove="MagicDyeSupplementaries\**" />
+	  <EmbeddedResource Remove="MagicDyeSupplementaries\**" />
+	  <None Remove="MagicDyeSupplementaries\**" />
+	</ItemGroup>
+
+</Project>

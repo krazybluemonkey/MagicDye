@@ -1,0 +1,160 @@
+Mods: {
+	MagicDyeSupplementaries: {
+		Items: {
+			DeterminationDye: {
+				DisplayName: Determination Dye
+				Tooltip: '''"This experiment proved to be very, very interesting..."'''
+			}
+
+			InverseDeterminationDye: {
+				DisplayName: Inverse Determination Dye
+				Tooltip: '''"The will to keep living... The resolve to change fate."'''
+			}
+
+			ForceFieldDye: {
+				DisplayName: Force Field Dye
+				Tooltip: ""
+			}
+
+			SepiaToneDye: {
+				DisplayName: Sepia Tone Dye
+				Tooltip: ""
+			}
+
+			GrayScaleDye: {
+				DisplayName: Gray Scale Dye
+				Tooltip: ""
+			}
+
+			PosterizeDye: {
+				DisplayName: Posterize Dye
+				Tooltip: ""
+			}
+
+			LifeDye: {
+				DisplayName: Life Dye
+				Tooltip: ""
+			}
+
+			ManaDye: {
+				DisplayName: Mana Dye
+				Tooltip: ""
+			}
+
+			BiomeDye: {
+				DisplayName: Biome Dye
+				Tooltip: ""
+			}
+
+			DepthDye: {
+				DisplayName: Depth Dye
+				Tooltip: ""
+			}
+
+			RichesDye: {
+				DisplayName: Riches Dye
+				Tooltip: ""
+			}
+
+			ShiftingRainbowDye: {
+				DisplayName: Shifting Rainbow Dye
+				Tooltip: ""
+			}
+
+			ShiningHeartDye: {
+				DisplayName: Shining Heart Dye
+				Tooltip: ""
+			}
+
+			SpeedDye: {
+				DisplayName: Speed Dye
+				Tooltip: ""
+			}
+
+			StarLightDye: {
+				DisplayName: Star Light Dye
+				Tooltip: ""
+			}
+
+			TimeDye: {
+				DisplayName: Time Dye
+				Tooltip: ""
+			}
+
+			CrystalShineDye: {
+				DisplayName: Crystal Shine Dye
+				Tooltip: ""
+			}
+
+			DemonFireDye: {
+				DisplayName: Demon Fire Dye
+				Tooltip: ""
+			}
+
+			FamilarEyesDye: {
+				DisplayName: Familar Eyes Dye
+				Tooltip: ""
+			}
+
+			FamilarPantsDye: {
+				DisplayName: Familar Pants Dye
+				Tooltip: ""
+			}
+
+			FamilarShirtDye: {
+				DisplayName: Familar Shirt Dye
+				Tooltip: ""
+			}
+
+			FamilarShoesDye: {
+				DisplayName: Familar Shoes Dye
+				Tooltip: ""
+			}
+
+			FamilarSkinDye: {
+				DisplayName: Familar Skin Dye
+				Tooltip: ""
+			}
+
+			FamilarUndershirtDye: {
+				DisplayName: Familar Undershirt Dye
+				Tooltip: ""
+			}
+
+			FamiliarHairDye: {
+				DisplayName: Familiar Hair Dye
+				Tooltip: ""
+			}
+
+			FamiliarEyesDye: {
+				DisplayName: Familiar Eyes Dye
+				Tooltip: ""
+			}
+
+			FamiliarPantsDye: {
+				DisplayName: Familiar Pants Dye
+				Tooltip: ""
+			}
+
+			FamiliarShirtDye: {
+				DisplayName: Familiar Shirt Dye
+				Tooltip: ""
+			}
+
+			FamiliarShoesDye: {
+				DisplayName: Familiar Shoes Dye
+				Tooltip: ""
+			}
+
+			FamiliarSkinDye: {
+				DisplayName: Familiar Skin Dye
+				Tooltip: ""
+			}
+
+			FamiliarUndershirtDye: {
+				DisplayName: Familiar Undershirt Dye
+				Tooltip: ""
+			}
+		}
+	}
+}

@@ -1,0 +1,216 @@
+UI: {
+	PrimaryColor: Primary Color
+	SecondaryColor: Secondary Color
+	Saturation: Saturation
+	Opacity: Opacity
+	ResearchToolTip:
+		'''
+		Insert dyes to research
+		Insert magic dyes to change slots
+		'''
+	CopyToolTip: Copy dye template to clipboard
+	PasteToolTip: Paste dye template from clipboard
+	WorkingSlotToolTip: Current Magic Dye Slot
+	ColorPageToolTip: Colors & Modifiers
+	ResearchPageToolTip: Research & Templates
+	Pass: Pass
+	ColorModOne: Color Modifier #1
+	ColorModTwo: Color Modifier #2
+	Templates: Templates
+
+	Filters: {
+		Filter: Filter
+		Vanilla: Terraria
+		All: All
+	}
+
+	Information: {
+		PasteInvalidJSONError: The template JSON in your Clipboard is malformed or invalid.
+		PasteJSONSizeError: The template JSON in your Clipboard is larger or smaller then expected.
+		PasteJSONVersionError: The version of your Clipboards' template JSON is invalid.
+		PasteInvalidPassError: The Pass in your Clipboards' template JSON is invalid.
+		PasteInvalidPassUnresearchedError: The Pass in your Clipboards' template JSON is either unresearched or invalid.
+		PasteInvalidColorModifierError: One of the Color Modifiers in your Clipboards' template JSON are either unresearched or invalid.
+		PasteInvalidColorModifierUnresearchedError: One of the Color Modifiers in your Clipboards' template JSON are either unresearched or invalid.
+		PasteInvalidColorError: One of the colors in your Clipboards' template JSON is invalid.
+		PasteInvalidSaturationError: The Saturation in your Clipboards' template JSON is invalid.
+		PasteInvalidOpacityError: The Opacity in your Clipboards' template JSON is invalid.
+		PasteUnspecifiedError: An unspecified error has occurred. Ensure your template JSON is formatted correctly and try again.
+		CopySuccess: Copied!
+		PasteSuccess: Pasted!
+	}
+}
+
+Logs: {
+	UnloadedWarn: MagicDye Slot {0} pass for {1} is from an unloaded mod. the dye will display oddly until the mod is re-enabled.
+	DummyPlayer: Display Dummy
+}
+
+Items: {
+	MagicDyeSlot1: {
+		DisplayName: Magic Dye (Slot 1)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot2: {
+		DisplayName: Magic Dye (Slot 2)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot3: {
+		DisplayName: Magic Dye (Slot 3)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot4: {
+		DisplayName: Magic Dye (Slot 4)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot5: {
+		DisplayName: Magic Dye (Slot 5)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot6: {
+		DisplayName: Magic Dye (Slot 6)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot7: {
+		DisplayName: Magic Dye (Slot 7)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot8: {
+		DisplayName: Magic Dye (Slot 8)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot9: {
+		DisplayName: Magic Dye (Slot 9)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot10: {
+		DisplayName: Magic Dye (Slot 10)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot11: {
+		DisplayName: Magic Dye (Slot 11)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot12: {
+		DisplayName: Magic Dye (Slot 12)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot13: {
+		DisplayName: Magic Dye (Slot 13)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot14: {
+		DisplayName: Magic Dye (Slot 14)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot15: {
+		DisplayName: Magic Dye (Slot 15)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot16: {
+		DisplayName: Magic Dye (Slot 16)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot17: {
+		DisplayName: Magic Dye (Slot 17)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot18: {
+		DisplayName: Magic Dye (Slot 18)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot19: {
+		DisplayName: Magic Dye (Slot 19)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot20: {
+		DisplayName: Magic Dye (Slot 20)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot21: {
+		DisplayName: Magic Dye (Slot 21)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot22: {
+		DisplayName: Magic Dye (Slot 22)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot23: {
+		DisplayName: Magic Dye (Slot 23)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot24: {
+		DisplayName: Magic Dye (Slot 24)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot25: {
+		DisplayName: Magic Dye (Slot 25)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot26: {
+		DisplayName: Magic Dye (Slot 26)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot27: {
+		DisplayName: Magic Dye (Slot 27)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot28: {
+		DisplayName: Magic Dye (Slot 28)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot29: {
+		DisplayName: Magic Dye (Slot 29)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot30: {
+		DisplayName: Magic Dye (Slot 30)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot31: {
+		DisplayName: Magic Dye (Slot 31)
+		Tooltip: ""
+	}
+
+	MagicDyeSlot32: {
+		DisplayName: Magic Dye (Slot 32)
+		Tooltip: ""
+	}
+
+	MagicDyeVatItem: {
+		DisplayName: Magic Dye Vat
+		Tooltip: ""
+	}
+}
+
+Tiles.MagicDyeVatTile.MapEntry: Magic Dye Vat
