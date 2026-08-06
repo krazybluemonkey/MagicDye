@@ -35,9 +35,12 @@ namespace MagicDyeSupplementaries.ColorModifiers
                 projectile = entity as Projectile;
                 player = Main.player[projectile.owner];
             }
-            if (player != null && !player.isDisplayDollOrInanimate && !player.isHatRackDoll)
+            if (player != null)
             {
-                // continue as normal
+                if (player.isDisplayDollOrInanimate || player.isHatRackDoll)
+                {
+                    player = Main.LocalPlayer;
+                }
             }
             else
             {

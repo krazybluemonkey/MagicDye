@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ID;
 using MagicDyeSupplementaries.Content.Items.Dyes;
 using Terraria.DataStructures;
+using Terraria.Map;
 
 namespace MagicDyeSupplementaries.ColorModifiers
 {
@@ -35,9 +36,16 @@ namespace MagicDyeSupplementaries.ColorModifiers
             }
             Vector2 EnitiyVelocity;
 
-            if (player != null && !player.isDisplayDollOrInanimate && !player.isHatRackDoll)
+            if (player != null)
             {
-                EnitiyVelocity = player.velocity;
+                if (!player.isDisplayDollOrInanimate && !player.isHatRackDoll)
+                {
+                    EnitiyVelocity = player.velocity;
+                }
+                else
+                {
+                    EnitiyVelocity = Main.LocalPlayer.velocity;
+                }
             }
             else
             {

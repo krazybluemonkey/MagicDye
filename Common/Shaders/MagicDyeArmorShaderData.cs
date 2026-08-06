@@ -31,9 +31,16 @@ namespace MagicDye.Common.Shaders
             MagicDyePlayer MDPlayer;
             Player CurrPlayer = entity as Player;
             Projectile Pet;
-            if (CurrPlayer != null && !CurrPlayer.isDisplayDollOrInanimate && !CurrPlayer.isHatRackDoll)
+            if (CurrPlayer != null)
             {
-                MDPlayer  = CurrPlayer.GetModPlayer<MagicDyePlayer>();
+                if (!CurrPlayer.isDisplayDollOrInanimate && !CurrPlayer.isHatRackDoll)
+                {
+                    MDPlayer = CurrPlayer.GetModPlayer<MagicDyePlayer>();
+                }
+                else
+                {
+                    MDPlayer = Main.LocalPlayer.GetModPlayer<MagicDyePlayer>();
+                }
             }
             else if (entity is Projectile)
             {

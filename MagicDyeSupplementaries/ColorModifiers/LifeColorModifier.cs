@@ -36,10 +36,15 @@ namespace MagicDyeSupplementaries.ColorModifiers
             }
             float playerLife;
             float playerMaxLife;
-            if (player != null && !player.isDisplayDollOrInanimate && !player.isHatRackDoll)
+            if (player != null)
             {
                 playerLife = (float)player.statLife;
                 playerMaxLife = (float)player.statLifeMax2;
+                if (player.isDisplayDollOrInanimate || player.isHatRackDoll)
+                {
+                    playerLife = (float)Main.LocalPlayer.statLife;
+                    playerMaxLife = (float)Main.LocalPlayer.statLifeMax2;
+                }
             }
             else
             {

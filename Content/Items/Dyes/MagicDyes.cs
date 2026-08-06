@@ -10,6 +10,7 @@ using ReLogic.Content;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.Localization;
+using MagicDye.Content.Tiles;
 
 namespace MagicDye.Content.Items.Dyes
 {
@@ -38,8 +39,8 @@ namespace MagicDye.Content.Items.Dyes
             Item.width = 20;
             Item.height = 20;
             Item.maxStack = 9999;
-            Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = ItemRarityID.Cyan;
+            Item.value = Item.sellPrice(0, 0, 20, 0);
+            Item.rare = ItemRarityID.Blue;
             Item.dye = Item.dye;
         }
 
@@ -131,7 +132,7 @@ namespace MagicDye.Content.Items.Dyes
             CreateRecipe(2)
                 .AddIngredient(ItemID.BottledWater, 1)
                 .AddIngredient(ItemID.FallenStar, 1)
-                .AddTile(Mod, "MagicDyeVatTile")
+                .AddTile(ModContent.TileType<MagicDyeVatTile>())
                 .Register();
         }
     }

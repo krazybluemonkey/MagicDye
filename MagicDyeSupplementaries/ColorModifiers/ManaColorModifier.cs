@@ -36,10 +36,15 @@ namespace MagicDyeSupplementaries.ColorModifiers
             }
             float playerMana;
             float playerMaxMana;
-            if (player != null && !player.isDisplayDollOrInanimate && !player.isHatRackDoll)
+            if (player != null)
             {
                 playerMana = (float)player.statMana;
                 playerMaxMana = (float)player.statManaMax2;
+                if (player.isDisplayDollOrInanimate || player.isHatRackDoll)
+                {
+                    playerMana = (float)Main.LocalPlayer.statMana;
+                    playerMaxMana = (float)Main.LocalPlayer.statManaMax2;
+                }
             }
             else
             {

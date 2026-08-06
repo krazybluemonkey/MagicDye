@@ -28,8 +28,8 @@ namespace MagicDyeSupplementaries.Content.Items.Dyes
 			Item.width = 20;
 			Item.height = 20;
 			Item.maxStack = 9999;
-			Item.value = Item.sellPrice(0, 1, 50, 0);
-			Item.rare = ItemRarityID.Orange;
+			Item.value = Item.sellPrice(0, 0, 75, 0);
+			Item.rare = ItemRarityID.Green;
 			Item.dye = Item.dye;
 		}
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
@@ -40,7 +40,7 @@ namespace MagicDyeSupplementaries.Content.Items.Dyes
         public override void AddRecipes()
         {
             CreateRecipe(2)
-                .AddIngredient(ItemID.MartianConduitPlating, 5)
+                .AddIngredient(ItemID.MartianConduitPlating)
                 .AddIngredient(ItemID.BottledWater)
                 .AddTile(TileID.DyeVat)
                 .Register();

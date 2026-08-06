@@ -20,6 +20,7 @@ namespace MagicDyeSupplementaries.Content.Items.Dyes
             }
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<InverseDeterminationDye>();
         }
 		public override void SetDefaults()
 		{
@@ -29,14 +30,6 @@ namespace MagicDyeSupplementaries.Content.Items.Dyes
 			Item.value = Item.sellPrice(0, 0, 75, 0);
 			Item.rare = ItemRarityID.Green;
 			Item.dye = Item.dye;
-        }
-        public override void AddRecipes()
-        {
-            CreateRecipe(2)
-                .AddIngredient(ItemID.SilverDye)
-                .AddIngredient(ItemID.BlackDye)
-                .AddTile(TileID.DyeVat)
-                .Register();
         }
     }
 
@@ -53,6 +46,7 @@ namespace MagicDyeSupplementaries.Content.Items.Dyes
             }
 
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<DeterminationDye>();
         }
         public override void SetDefaults()
         {
@@ -63,13 +57,6 @@ namespace MagicDyeSupplementaries.Content.Items.Dyes
             Item.rare = ItemRarityID.Green;
             Item.dye = Item.dye;
         }
-        public override void AddRecipes()
-        {
-            CreateRecipe(2)
-                .AddIngredient(ItemID.BlackDye)
-                .AddIngredient(ItemID.SilverDye)
-                .AddTile(TileID.DyeVat)
-                .Register();
-        }
+
     }
 }

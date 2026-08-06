@@ -69,7 +69,7 @@ namespace MagicDyeSupplementaries.Content.Items.Dyes
         public override void AddRecipes()
         {
             CreateRecipe(2)
-                    .AddIngredient(ItemID.CrystalShard, 5)
+                    .AddIngredient(ItemID.CrystalShard)
                     .AddIngredient(ItemID.BottledWater)
                     .AddTile(TileID.DyeVat)
                     .Register();
@@ -102,7 +102,7 @@ namespace MagicDyeSupplementaries.Content.Items.Dyes
         public override void AddRecipes()
         {
             CreateRecipe(2)
-                    .AddIngredient(ItemID.Obsidian, 5)
+                    .AddIngredient(ItemID.Obsidian)
                     .AddIngredient(ItemID.BottledWater)
                     .AddTile(TileID.DyeVat)
                     .Register();
@@ -263,14 +263,14 @@ namespace MagicDyeSupplementaries.Content.Items.Dyes
             Item.width = 20;
             Item.height = 20;
             Item.maxStack = 9999;
-            Item.value = Item.sellPrice(0, 1, 50, 0);
-            Item.rare = ItemRarityID.Orange;
+            Item.value = Item.sellPrice(0, 0, 75, 0);
+            Item.rare = ItemRarityID.Green;
             Item.dye = Item.dye;
         }
         public override void AddRecipes()
         {
             CreateRecipe(2)
-                .AddIngredient(ItemID.RainbowBrick, 5)
+                .AddIngredient(ItemID.RainbowBrick)
                 .AddIngredient(ItemID.BottledWater)
                 .AddTile(TileID.DyeVat)
                 .Register();
@@ -369,7 +369,7 @@ namespace MagicDyeSupplementaries.Content.Items.Dyes
         public override void AddRecipes()
         {
             CreateRecipe(2)
-                    .AddIngredient(ItemID.FallenStar, 5)
+                    .AddIngredient(ItemID.FallenStar)
                     .AddIngredient(ItemID.BottledWater)
                     .AddTile(TileID.DyeVat)
                     .Register();
@@ -406,347 +406,291 @@ namespace MagicDyeSupplementaries.Content.Items.Dyes
                     .AddTile(TileID.DyeVat)
                     .Register();
         }
+    }
 
-        public class FamiliarHairDye : ModItem
+    public class FamiliarHairDye : ModItem
+    {
+        public override string Texture => "MagicDyeSupplementaries/Content/Items/Dyes/SpecialDyeBase";
+        public override void SetStaticDefaults()
         {
-            public override string Texture => "MagicDyeSupplementaries/Content/Items/Dyes/SpecialDyeBase";
-            public override void SetStaticDefaults()
+            if (!Main.dedServ)
             {
-                if (!Main.dedServ)
-                {
-                    GameShaders.Armor.BindShader(
-                        Item.type,
-                        new SupplementariesShaderData(Main.PixelShaderRef, "ArmorColored")
-                    ).UseNewSaturation(1.2f).UseType(13);
-                }
+                GameShaders.Armor.BindShader(
+                    Item.type,
+                    new SupplementariesShaderData(Main.PixelShaderRef, "ArmorColored")
+                ).UseNewSaturation(1.2f).UseType(13);
+            }
 
-                CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-            }
-            public override void SetDefaults()
-            {
-                Item.width = 20;
-                Item.height = 20;
-                Item.maxStack = 9999;
-                Item.value = Item.sellPrice(0, 0, 75, 0);
-                Item.rare = ItemRarityID.Green;
-                Item.dye = Item.dye;
-            }
-            public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-            {
-                Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
-                spriteBatch.Draw(texture.Value, position, frame, Main.LocalPlayer.hairColor, 0, origin, scale, SpriteEffects.None, 0);
-            }
-            public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-            {
-                Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
-                Main.GetItemDrawFrame(Item.type, out var itemTexture, out var itemFrame);
-                Vector2 origin = itemFrame.Size() / 2f;
-                Vector2 drawPosition = Item.Bottom - Main.screenPosition - new Vector2(0, origin.Y);
-                Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.hairColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.hairColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.hairColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
-
-                spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
-            }
-            public override void AddRecipes()
-            {
-                CreateRecipe(2)
-                        .AddIngredient(ItemID.FamiliarWig)
-                        .AddIngredient(ItemID.BottledWater)
-                        .AddTile(TileID.DyeVat)
-                        .Register();
-            }
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
         }
-
-        public class FamiliarSkinDye : ModItem
+        public override void SetDefaults()
         {
-            public override string Texture => "MagicDyeSupplementaries/Content/Items/Dyes/SpecialDyeBase";
-            public override void SetStaticDefaults()
-            {
-                if (!Main.dedServ)
-                {
-                    GameShaders.Armor.BindShader(
-                        Item.type,
-                        new SupplementariesShaderData(Main.PixelShaderRef, "ArmorColored")
-                    ).UseNewSaturation(1.2f).UseType(14);
-                }
-
-                CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-            }
-            public override void SetDefaults()
-            {
-                Item.width = 20;
-                Item.height = 20;
-                Item.maxStack = 9999;
-                Item.value = Item.sellPrice(0, 0, 75, 0);
-                Item.rare = ItemRarityID.Green;
-                Item.dye = Item.dye;
-            }
-            public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-            {
-                Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
-                spriteBatch.Draw(texture.Value, position, frame, Main.LocalPlayer.skinColor, 0, origin, scale, SpriteEffects.None, 0);
-            }
-            public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-            {
-                Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
-                Main.GetItemDrawFrame(Item.type, out var itemTexture, out var itemFrame);
-                Vector2 origin = itemFrame.Size() / 2f;
-                Vector2 drawPosition = Item.Bottom - Main.screenPosition - new Vector2(0, origin.Y);
-                Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.skinColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.skinColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.skinColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
-
-                spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
-            }
-            public override void AddRecipes()
-            {
-                CreateRecipe(2)
-                        .AddIngredient(ItemID.FamiliarWig)
-                        .AddIngredient(ItemID.BottledWater)
-                        .AddTile(TileID.DyeVat)
-                        .Register();
-            }
+            Item.width = 20;
+            Item.height = 20;
+            Item.maxStack = 9999;
+            Item.value = Item.sellPrice(0, 0, 20, 0);
+            Item.rare = ItemRarityID.Blue;
+            Item.dye = Item.dye;
         }
-
-        public class FamiliarEyesDye : ModItem
+        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            public override string Texture => "MagicDyeSupplementaries/Content/Items/Dyes/SpecialDyeBase";
-            public override void SetStaticDefaults()
-            {
-                if (!Main.dedServ)
-                {
-                    GameShaders.Armor.BindShader(
-                        Item.type,
-                        new SupplementariesShaderData(Main.PixelShaderRef, "ArmorColored")
-                    ).UseNewSaturation(1.2f).UseType(15);
-                }
-
-                CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-            }
-            public override void SetDefaults()
-            {
-                Item.width = 20;
-                Item.height = 20;
-                Item.maxStack = 9999;
-                Item.value = Item.sellPrice(0, 0, 75, 0);
-                Item.rare = ItemRarityID.Green;
-                Item.dye = Item.dye;
-            }
-            public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-            {
-                Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
-                spriteBatch.Draw(texture.Value, position, frame, Main.LocalPlayer.eyeColor, 0, origin, scale, SpriteEffects.None, 0);
-            }
-            public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-            {
-                Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
-                Main.GetItemDrawFrame(Item.type, out var itemTexture, out var itemFrame);
-                Vector2 origin = itemFrame.Size() / 2f;
-                Vector2 drawPosition = Item.Bottom - Main.screenPosition - new Vector2(0, origin.Y);
-                Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.eyeColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.eyeColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.eyeColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
-
-                spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
-            }
-            public override void AddRecipes()
-            {
-                CreateRecipe(2)
-                        .AddIngredient(ItemID.FamiliarWig)
-                        .AddIngredient(ItemID.BottledWater)
-                        .AddTile(TileID.DyeVat)
-                        .Register();
-            }
+            Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
+            spriteBatch.Draw(texture.Value, position, frame, Main.LocalPlayer.hairColor, 0, origin, scale, SpriteEffects.None, 0);
         }
-
-        public class FamiliarShirtDye : ModItem
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
         {
-            public override string Texture => "MagicDyeSupplementaries/Content/Items/Dyes/SpecialDyeBase";
-            public override void SetStaticDefaults()
-            {
-                if (!Main.dedServ)
-                {
-                    GameShaders.Armor.BindShader(
-                        Item.type,
-                        new SupplementariesShaderData(Main.PixelShaderRef, "ArmorColored")
-                    ).UseNewSaturation(1.2f).UseType(16);
-                }
+            Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
+            Main.GetItemDrawFrame(Item.type, out var itemTexture, out var itemFrame);
+            Vector2 origin = itemFrame.Size() / 2f;
+            Vector2 drawPosition = Item.Bottom - Main.screenPosition - new Vector2(0, origin.Y);
+            Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.hairColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.hairColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.hairColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
 
-                CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-            }
-            public override void SetDefaults()
-            {
-                Item.width = 20;
-                Item.height = 20;
-                Item.maxStack = 9999;
-                Item.value = Item.sellPrice(0, 0, 75, 0);
-                Item.rare = ItemRarityID.Green;
-                Item.dye = Item.dye;
-            }
-            public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-            {
-                Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
-                spriteBatch.Draw(texture.Value, position, frame, Main.LocalPlayer.shirtColor, 0, origin, scale, SpriteEffects.None, 0);
-            }
-            public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-            {
-                Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
-                Main.GetItemDrawFrame(Item.type, out var itemTexture, out var itemFrame);
-                Vector2 origin = itemFrame.Size() / 2f;
-                Vector2 drawPosition = Item.Bottom - Main.screenPosition - new Vector2(0, origin.Y);
-                Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.shirtColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.shirtColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.shirtColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
-
-                spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
-            }
-            public override void AddRecipes()
-            {
-                CreateRecipe(2)
-                        .AddIngredient(ItemID.FamiliarShirt)
-                        .AddIngredient(ItemID.BottledWater)
-                        .AddTile(TileID.DyeVat)
-                        .Register();
-            }
+            spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
         }
+    }
 
-        public class FamiliarUndershirtDye : ModItem
+    public class FamiliarSkinDye : ModItem
+    {
+        public override string Texture => "MagicDyeSupplementaries/Content/Items/Dyes/SpecialDyeBase";
+        public override void SetStaticDefaults()
         {
-            public override string Texture => "MagicDyeSupplementaries/Content/Items/Dyes/SpecialDyeBase";
-            public override void SetStaticDefaults()
+            if (!Main.dedServ)
             {
-                if (!Main.dedServ)
-                {
-                    GameShaders.Armor.BindShader(
-                        Item.type,
-                        new SupplementariesShaderData(Main.PixelShaderRef, "ArmorColored")
-                    ).UseNewSaturation(1.2f).UseType(17);
-                }
+                GameShaders.Armor.BindShader(
+                    Item.type,
+                    new SupplementariesShaderData(Main.PixelShaderRef, "ArmorColored")
+                ).UseNewSaturation(1.2f).UseType(14);
+            }
 
-                CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-            }
-            public override void SetDefaults()
-            {
-                Item.width = 20;
-                Item.height = 20;
-                Item.maxStack = 9999;
-                Item.value = Item.sellPrice(0, 0, 75, 0);
-                Item.rare = ItemRarityID.Green;
-                Item.dye = Item.dye;
-            }
-            public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-            {
-                Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
-                spriteBatch.Draw(texture.Value, position, frame, Main.LocalPlayer.underShirtColor, 0, origin, scale, SpriteEffects.None, 0);
-            }
-            public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-            {
-                Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
-                Main.GetItemDrawFrame(Item.type, out var itemTexture, out var itemFrame);
-                Vector2 origin = itemFrame.Size() / 2f;
-                Vector2 drawPosition = Item.Bottom - Main.screenPosition - new Vector2(0, origin.Y);
-                Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.underShirtColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.underShirtColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.underShirtColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
-
-                spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
-            }
-            public override void AddRecipes()
-            {
-                CreateRecipe(2)
-                        .AddIngredient(ItemID.FamiliarShirt)
-                        .AddIngredient(ItemID.BottledWater)
-                        .AddTile(TileID.DyeVat)
-                        .Register();
-            }
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
         }
-
-        public class FamiliarPantsDye : ModItem
+        public override void SetDefaults()
         {
-            public override string Texture => "MagicDyeSupplementaries/Content/Items/Dyes/SpecialDyeBase";
-            public override void SetStaticDefaults()
-            {
-                if (!Main.dedServ)
-                {
-                    GameShaders.Armor.BindShader(
-                        Item.type,
-                        new SupplementariesShaderData(Main.PixelShaderRef, "ArmorColored")
-                    ).UseNewSaturation(1.2f).UseType(18);
-                }
-
-                CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-            }
-            public override void SetDefaults()
-            {
-                Item.width = 20;
-                Item.height = 20;
-                Item.maxStack = 9999;
-                Item.value = Item.sellPrice(0, 0, 75, 0);
-                Item.rare = ItemRarityID.Green;
-                Item.dye = Item.dye;
-            }
-            public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-            {
-                Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
-                spriteBatch.Draw(texture.Value, position, frame, Main.LocalPlayer.pantsColor, 0, origin, scale, SpriteEffects.None, 0);
-            }
-            public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-            {
-                Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
-                Main.GetItemDrawFrame(Item.type, out var itemTexture, out var itemFrame);
-                Vector2 origin = itemFrame.Size() / 2f;
-                Vector2 drawPosition = Item.Bottom - Main.screenPosition - new Vector2(0, origin.Y);
-                Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.pantsColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.pantsColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.pantsColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
-
-                spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
-            }
-            public override void AddRecipes()
-            {
-                CreateRecipe(2)
-                        .AddIngredient(ItemID.FamiliarPants)
-                        .AddIngredient(ItemID.BottledWater)
-                        .AddTile(TileID.DyeVat)
-                        .Register();
-            }
+            Item.width = 20;
+            Item.height = 20;
+            Item.maxStack = 9999;
+            Item.value = Item.sellPrice(0, 0, 20, 0);
+            Item.rare = ItemRarityID.Blue;
+            Item.dye = Item.dye;
         }
-        public class FamiliarShoesDye : ModItem
+        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            public override string Texture => "MagicDyeSupplementaries/Content/Items/Dyes/SpecialDyeBase";
-            public override void SetStaticDefaults()
-            {
-                if (!Main.dedServ)
-                {
-                    GameShaders.Armor.BindShader(
-                        Item.type,
-                        new SupplementariesShaderData(Main.PixelShaderRef, "ArmorColored")
-                    ).UseNewSaturation(1.2f).UseType(19);
-                }
+            Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
+            spriteBatch.Draw(texture.Value, position, frame, Main.LocalPlayer.skinColor, 0, origin, scale, SpriteEffects.None, 0);
+        }
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+        {
+            Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
+            Main.GetItemDrawFrame(Item.type, out var itemTexture, out var itemFrame);
+            Vector2 origin = itemFrame.Size() / 2f;
+            Vector2 drawPosition = Item.Bottom - Main.screenPosition - new Vector2(0, origin.Y);
+            Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.skinColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.skinColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.skinColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
 
-                CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-            }
-            public override void SetDefaults()
-            {
-                Item.width = 20;
-                Item.height = 20;
-                Item.maxStack = 9999;
-                Item.value = Item.sellPrice(0, 0, 75, 0);
-                Item.rare = ItemRarityID.Green;
-                Item.dye = Item.dye;
-            }
-            public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-            {
-                Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
-                spriteBatch.Draw(texture.Value, position, frame, Main.LocalPlayer.shoeColor, 0, origin, scale, SpriteEffects.None, 0);
-            }
-            public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
-            {
-                Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
-                Main.GetItemDrawFrame(Item.type, out var itemTexture, out var itemFrame);
-                Vector2 origin = itemFrame.Size() / 2f;
-                Vector2 drawPosition = Item.Bottom - Main.screenPosition - new Vector2(0, origin.Y);
-                Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.shoeColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.shoeColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.shoeColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
+            spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
+        }
+    }
 
-                spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
-            }
-            public override void AddRecipes()
+    public class FamiliarEyesDye : ModItem
+    {
+        public override string Texture => "MagicDyeSupplementaries/Content/Items/Dyes/SpecialDyeBase";
+        public override void SetStaticDefaults()
+        {
+            if (!Main.dedServ)
             {
-                CreateRecipe(2)
-                        .AddIngredient(ItemID.FamiliarPants)
-                        .AddIngredient(ItemID.BottledWater)
-                        .AddTile(TileID.DyeVat)
-                        .Register();
+                GameShaders.Armor.BindShader(
+                    Item.type,
+                    new SupplementariesShaderData(Main.PixelShaderRef, "ArmorColored")
+                ).UseNewSaturation(1.2f).UseType(15);
             }
+
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+        }
+        public override void SetDefaults()
+        {
+            Item.width = 20;
+            Item.height = 20;
+            Item.maxStack = 9999;
+            Item.value = Item.sellPrice(0, 0, 20, 0);
+            Item.rare = ItemRarityID.Blue;
+            Item.dye = Item.dye;
+        }
+        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
+        {
+            Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
+            spriteBatch.Draw(texture.Value, position, frame, Main.LocalPlayer.eyeColor, 0, origin, scale, SpriteEffects.None, 0);
+        }
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+        {
+            Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
+            Main.GetItemDrawFrame(Item.type, out var itemTexture, out var itemFrame);
+            Vector2 origin = itemFrame.Size() / 2f;
+            Vector2 drawPosition = Item.Bottom - Main.screenPosition - new Vector2(0, origin.Y);
+            Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.eyeColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.eyeColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.eyeColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
+
+            spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
+        }
+    }
+
+    public class FamiliarShirtDye : ModItem
+    {
+        public override string Texture => "MagicDyeSupplementaries/Content/Items/Dyes/SpecialDyeBase";
+        public override void SetStaticDefaults()
+        {
+            if (!Main.dedServ)
+            {
+                GameShaders.Armor.BindShader(
+                    Item.type,
+                    new SupplementariesShaderData(Main.PixelShaderRef, "ArmorColored")
+                ).UseNewSaturation(1.2f).UseType(16);
+            }
+
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+        }
+        public override void SetDefaults()
+        {
+            Item.width = 20;
+            Item.height = 20;
+            Item.maxStack = 9999;
+            Item.value = Item.sellPrice(0, 0, 20, 0);
+            Item.rare = ItemRarityID.Blue;
+            Item.dye = Item.dye;
+        }
+        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
+        {
+            Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
+            spriteBatch.Draw(texture.Value, position, frame, Main.LocalPlayer.shirtColor, 0, origin, scale, SpriteEffects.None, 0);
+        }
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+        {
+            Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
+            Main.GetItemDrawFrame(Item.type, out var itemTexture, out var itemFrame);
+            Vector2 origin = itemFrame.Size() / 2f;
+            Vector2 drawPosition = Item.Bottom - Main.screenPosition - new Vector2(0, origin.Y);
+            Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.shirtColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.shirtColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.shirtColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
+
+            spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
+        }
+    }
+
+    public class FamiliarUndershirtDye : ModItem
+    {
+        public override string Texture => "MagicDyeSupplementaries/Content/Items/Dyes/SpecialDyeBase";
+        public override void SetStaticDefaults()
+        {
+            if (!Main.dedServ)
+            {
+                GameShaders.Armor.BindShader(
+                    Item.type,
+                    new SupplementariesShaderData(Main.PixelShaderRef, "ArmorColored")
+                ).UseNewSaturation(1.2f).UseType(17);
+            }
+
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+        }
+        public override void SetDefaults()
+        {
+            Item.width = 20;
+            Item.height = 20;
+            Item.maxStack = 9999;
+            Item.value = Item.sellPrice(0, 0, 20, 0);
+            Item.rare = ItemRarityID.Blue;
+            Item.dye = Item.dye;
+        }
+        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
+        {
+            Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
+            spriteBatch.Draw(texture.Value, position, frame, Main.LocalPlayer.underShirtColor, 0, origin, scale, SpriteEffects.None, 0);
+        }
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+        {
+            Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
+            Main.GetItemDrawFrame(Item.type, out var itemTexture, out var itemFrame);
+            Vector2 origin = itemFrame.Size() / 2f;
+            Vector2 drawPosition = Item.Bottom - Main.screenPosition - new Vector2(0, origin.Y);
+            Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.underShirtColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.underShirtColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.underShirtColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
+
+            spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
+        }
+    }
+
+    public class FamiliarPantsDye : ModItem
+    {
+        public override string Texture => "MagicDyeSupplementaries/Content/Items/Dyes/SpecialDyeBase";
+        public override void SetStaticDefaults()
+        {
+            if (!Main.dedServ)
+            {
+                GameShaders.Armor.BindShader(
+                    Item.type,
+                    new SupplementariesShaderData(Main.PixelShaderRef, "ArmorColored")
+                ).UseNewSaturation(1.2f).UseType(18);
+            }
+
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+        }
+        public override void SetDefaults()
+        {
+            Item.width = 20;
+            Item.height = 20;
+            Item.maxStack = 9999;
+            Item.value = Item.sellPrice(0, 0, 20, 0);
+            Item.rare = ItemRarityID.Blue;
+            Item.dye = Item.dye;
+        }
+        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
+        {
+            Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
+            spriteBatch.Draw(texture.Value, position, frame, Main.LocalPlayer.pantsColor, 0, origin, scale, SpriteEffects.None, 0);
+        }
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+        {
+            Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
+            Main.GetItemDrawFrame(Item.type, out var itemTexture, out var itemFrame);
+            Vector2 origin = itemFrame.Size() / 2f;
+            Vector2 drawPosition = Item.Bottom - Main.screenPosition - new Vector2(0, origin.Y);
+            Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.pantsColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.pantsColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.pantsColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
+
+            spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
+        }
+    }
+    public class FamiliarShoesDye : ModItem
+    {
+        public override string Texture => "MagicDyeSupplementaries/Content/Items/Dyes/SpecialDyeBase";
+        public override void SetStaticDefaults()
+        {
+            if (!Main.dedServ)
+            {
+                GameShaders.Armor.BindShader(
+                    Item.type,
+                    new SupplementariesShaderData(Main.PixelShaderRef, "ArmorColored")
+                ).UseNewSaturation(1.2f).UseType(19);
+            }
+
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+        }
+        public override void SetDefaults()
+        {
+            Item.width = 20;
+            Item.height = 20;
+            Item.maxStack = 9999;
+            Item.value = Item.sellPrice(0, 0, 20, 0);
+            Item.rare = ItemRarityID.Blue;
+            Item.dye = Item.dye;
+        }
+        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
+        {
+            Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
+            spriteBatch.Draw(texture.Value, position, frame, Main.LocalPlayer.shoeColor, 0, origin, scale, SpriteEffects.None, 0);
+        }
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+        {
+            Asset<Texture2D> texture = ModContent.Request<Texture2D>("MagicDyeSupplementaries/Content/Items/Dyes/FamilarDye_Overlay");
+            Main.GetItemDrawFrame(Item.type, out var itemTexture, out var itemFrame);
+            Vector2 origin = itemFrame.Size() / 2f;
+            Vector2 drawPosition = Item.Bottom - Main.screenPosition - new Vector2(0, origin.Y);
+            Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.shoeColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.shoeColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.shoeColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
+
+            spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
         }
     }
 }
