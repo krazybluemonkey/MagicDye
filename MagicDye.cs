@@ -96,17 +96,17 @@ namespace MagicDye
             return new Color(R, G, B);
         }
 
-        public static int GetShaderItemIDFromPass(string pass)
+        public static int GetItemIDFromPass(string pass)
         {
-            List<ArmorShaderData> shaderDataList = (List<ArmorShaderData>)typeof(ArmorShaderDataSet).GetField("_shaderData", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Static).GetValue(GameShaders.Armor);
-            Dictionary<int, int> shaderDictionary = (Dictionary<int, int>)typeof(ArmorShaderDataSet).GetField("_shaderLookupDictionary", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Static).GetValue(GameShaders.Armor);
+            List<ArmorShaderData> shaderDataList = (List<ArmorShaderData>)typeof(ArmorShaderDataSet).GetField("_shaderData", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(GameShaders.Armor);
+            Dictionary<int, int> shaderDictionary = (Dictionary<int, int>)typeof(ArmorShaderDataSet).GetField("_shaderLookupDictionary", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(GameShaders.Armor);
 
             for (int i = 0; i < shaderDataList.Count; i++)
             {
-                string passName = (string)typeof(ShaderData).GetField("_passName", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Static).GetValue(shaderDataList[i]);
+                string passName = (string)typeof(ShaderData).GetField("_passName", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(shaderDataList[i]);
                 if (passName == pass)
                 {
-                    return shaderDictionary.FirstOrDefault(x => x.Value == i + 1).Key;
+                    return shaderDictionary.FirstOrDefault(x => x.Value == i+1).Key;
                 }
             }
 

@@ -277,7 +277,7 @@ namespace MagicDyeSupplementaries.Content.Items.Dyes
         }
     }
 
-    public class ShiningHeartDye : ModItem
+    public class GleamingHeartDye : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -691,6 +691,31 @@ namespace MagicDyeSupplementaries.Content.Items.Dyes
             Color Recolor = new Color(Math.Clamp(Main.LocalPlayer.shoeColor.R - (255 - (lightColor.R)), 0, 255), Math.Clamp(Main.LocalPlayer.shoeColor.G - (255 - (lightColor.G)), 0, 255), Math.Clamp(Main.LocalPlayer.shoeColor.B - (255 - (lightColor.B)), 0, 255), lightColor.A);
 
             spriteBatch.Draw(texture.Value, drawPosition, itemFrame, Recolor, rotation, origin, scale, SpriteEffects.None, 0);
+        }
+    }
+
+    public class SilverTrimDye : ModItem
+    {
+        public override void SetStaticDefaults()
+        {
+            if (!Main.dedServ)
+            {
+                GameShaders.Armor.BindShader(
+                    Item.type,
+                    new ArmorShaderData(Main.PixelShaderRef, "ArmorSilverTrim")
+                );
+            }
+
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+        }
+        public override void SetDefaults()
+        {
+            Item.width = 20;
+            Item.height = 20;
+            Item.maxStack = 9999;
+            Item.value = Item.sellPrice(0, 0, 20, 0);
+            Item.rare = ItemRarityID.Blue;
+            Item.dye = Item.dye;
         }
     }
 }

@@ -38,8 +38,8 @@ namespace MagicDyeSupplementaries
                 case 4: //depth
                     tempColor = Depth.ModifyColor(entity, _nColor, _nSecondaryColor, _nSaturation, _nOpacity);
                     break;
-                case 5: //determined heart
-                    tempColor = DeterminedHeart.ModifyColor(entity, _nColor, _nSecondaryColor, _nSaturation, _nOpacity);
+                case 5: //gleaming heart
+                    tempColor = GleamingHeart.ModifyColor(entity, _nColor, _nSecondaryColor, _nSaturation, _nOpacity);
                     break;
                 case 6: //life
                     tempColor = Life.ModifyColor(entity, _nColor, _nSecondaryColor, _nSaturation, _nOpacity);

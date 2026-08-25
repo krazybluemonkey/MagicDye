@@ -18,6 +18,7 @@ namespace MagicDyeSupplementaries.Common.GlobalNPCs
                 shop.Add<FamiliarUndershirtDye>(Condition.NpcIsPresent(NPCID.Clothier), Condition.MoonPhaseWaxingCrescent);
                 shop.Add<FamiliarPantsDye>(Condition.NpcIsPresent(NPCID.Clothier), Condition.MoonPhaseFirstQuarter);
                 shop.Add<FamiliarShoesDye>(Condition.NpcIsPresent(NPCID.Clothier), Condition.MoonPhaseWaxingGibbous);
+                shop.Add<SilverTrimDye>(Condition.MoonPhases26);
             }
         }
     }

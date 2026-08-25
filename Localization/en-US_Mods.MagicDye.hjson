@@ -207,14 +207,15 @@ Items: {
 		Tooltip: ""
 	}
 
-	MagicDyeVatItem: {
-		DisplayName: Magic Dye Vat
+	AlchemicDyeStationItem: {
+		DisplayName: Alchemic Dye Station
 		Tooltip:
 			'''
 			{$ItemTooltip.DyeVat}
 			33% chance to not consume dye crafting ingredients
+			Used To Customize Magic Dyes
 			'''
 	}
 }
 
-Tiles.MagicDyeVatTile.MapEntry: Magic Dye Vat
+Tiles.AlchemicDyeStationTile.MapEntry: Alchemic Dye Station

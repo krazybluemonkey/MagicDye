@@ -132,7 +132,7 @@ namespace MagicDye.Content.Items.Dyes
             CreateRecipe(2)
                 .AddIngredient(ItemID.BottledWater, 1)
                 .AddIngredient(ItemID.FallenStar, 1)
-                .AddTile(ModContent.TileType<MagicDyeVatTile>())
+                .AddTile(ModContent.TileType<AlchemicDyeStationTile>())
                 .Register();
         }
     }

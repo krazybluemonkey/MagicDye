@@ -13,7 +13,7 @@ using Terraria.ObjectData;
 
 namespace MagicDye.Content.Tiles
 {
-    internal class MagicDyeVatTile : ModTile
+    internal class AlchemicDyeStationTile : ModTile
     {
         public override void SetStaticDefaults()
         {
@@ -27,7 +27,7 @@ namespace MagicDye.Content.Tiles
             LocalizedText name = CreateMapEntryName();
             AddMapEntry(new Color(144, 148, 144), name);
 
-            DustType = DustID.WoodFurniture;
+            DustType = -1;
             AdjTiles = new int[] { TileID.DyeVat };
             AnimationFrameHeight = 54;
         }
@@ -36,7 +36,7 @@ namespace MagicDye.Content.Tiles
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = ModContent.ItemType<MagicDyeVatItem>();
+            player.cursorItemIconID = ModContent.ItemType<AlchemicDyeStationItem>();
         }
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -60,12 +60,12 @@ namespace MagicDye.Content.Tiles
         }
     }
 
-    internal class MagicDyeVatItem : ModItem
+    internal class AlchemicDyeStationItem : ModItem
     {
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.DyeVat);
-            Item.createTile = ModContent.TileType<MagicDyeVatTile>();
+            Item.createTile = ModContent.TileType<AlchemicDyeStationTile>();
         }
 
         public override void AddRecipes()

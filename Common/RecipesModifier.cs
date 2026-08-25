@@ -7,7 +7,7 @@ namespace MagicDye.Common
     {
         public static void DyeConsume(Recipe recipe, int type, ref int amount, bool isDecrafting)
         {
-            if (!Main.LocalPlayer.adjTile[ModContent.TileType<Content.Tiles.MagicDyeVatTile>()] || isDecrafting)
+            if (!Main.LocalPlayer.adjTile[ModContent.TileType<Content.Tiles.AlchemicDyeStationTile>()] || isDecrafting)
             {
                 return;
             }

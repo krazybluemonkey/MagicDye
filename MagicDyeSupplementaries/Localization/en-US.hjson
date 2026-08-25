@@ -61,8 +61,8 @@ Mods: {
 				Tooltip: ""
 			}
 
-			ShiningHeartDye: {
-				DisplayName: Shining Heart Dye
+			GleamingHeartDye: {
+				DisplayName: Gleaming Heart Dye
 				Tooltip: ""
 			}
 
@@ -153,6 +153,11 @@ Mods: {
 
 			FamiliarUndershirtDye: {
 				DisplayName: Familiar Undershirt Dye
+				Tooltip: ""
+			}
+
+			SilverTrimDye: {
+				DisplayName: Silver Trim Dye
 				Tooltip: ""
 			}
 		}

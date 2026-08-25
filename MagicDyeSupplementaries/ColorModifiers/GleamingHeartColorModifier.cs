@@ -8,7 +8,7 @@ using Terraria.DataStructures;
 
 namespace MagicDyeSupplementaries.ColorModifiers
 {
-    public class DeterminedHeart : ModSystem
+    public class GleamingHeart : ModSystem
     {
         public override void PostSetupContent()
         {
@@ -17,8 +17,8 @@ namespace MagicDyeSupplementaries.ColorModifiers
                 mod.Call(new object[4]
                 {
                     "AddColorMod",
-                    "Shining Heart",
-                    ModContent.ItemType<ShiningHeartDye>(),
+                    "Gleaming Heart",
+                    ModContent.ItemType<GleamingHeartDye>(),
                     ModifyColor
                 });
             }

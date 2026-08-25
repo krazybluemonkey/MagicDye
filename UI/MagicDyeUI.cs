@@ -307,10 +307,10 @@ namespace MagicDye.UI
         public void AddSearchBar(UIElement parent)
         {
             // template filter button
-            _filterButton = new UIImageButton(ModContent.Request<Texture2D>("MagicDye/UI/Button_Filter"))
+            _filterButton = new UIImageButton(ModContent.Request<Texture2D>("MagicDye/UI/Button_Filter", ReLogic.Content.AssetRequestMode.ImmediateLoad)) // ImmediateLoad is needed for proper width 
             {
                 VAlign = 0.5f,
-                HAlign = 0.03f
+                HAlign = 0.03f,
             };
             _filterButton.OnLeftClick += LeftClick_CycleFilter;
             _filterButton.OnRightClick += RightClick_CycleFilter;
@@ -908,7 +908,7 @@ namespace MagicDye.UI
 
         private void OpenOrCloseColorModGrid1(UIMouseEvent evt, UIElement listeningElement)
         {
-            if (_passGrid.Parent != null)
+            if (_colorMods1Grid.Parent != null)
             {
                 CloseColorModGrid1();
                 return;
@@ -928,7 +928,7 @@ namespace MagicDye.UI
 
         private void OpenOrCloseColorModGrid2(UIMouseEvent evt, UIElement listeningElement)
         {
-            if (_passGrid.Parent != null)
+            if (_colorMods2Grid.Parent != null)
             {
                 CloseColorModGrid2();
                 return;
@@ -1429,7 +1429,7 @@ namespace MagicDye.UI
             Main.NewText($"color mod 1: {MainPlayer.MagicDyeColorMod1[_workingSlot]}");
             Main.NewText($"color mod 2: {MainPlayer.MagicDyeColorMod2[_workingSlot]}");
             Main.NewText($"Item ID: {MainPlayer.MagicDyeItem[_workingSlot].type}");
-            Main.NewText($"{MagicDye.GetShaderItemIDFromPass(MainPlayer.MagicDyePasses[_workingSlot])}");
+            Main.NewText($"{MagicDye.GetItemIDFromPass(MainPlayer.MagicDyePasses[_workingSlot])}");
         }
 
         // these go unused due to breaking dye previews.
@@ -1533,6 +1533,11 @@ namespace MagicDye.UI
         private void Click_PasteString(UIMouseEvent evt, UIElement listeningElement)
         {
             SoundEngine.PlaySound(SoundID.MenuTick);
+            var UIPlayer = tempPlayer.GetModPlayer<MagicDyePlayer>();
+            if (UIPlayer.MagicDyePrimaryColors == null)
+            {
+                UIPlayer.Initialize();
+            }
             string value = Platform.Get<IClipboard>().Value;
             int num = value.IndexOf("{");
             if (num == -1)
@@ -1778,8 +1783,39 @@ namespace MagicDye.UI
             _tempColorMod1 = TempColorMod1;
             _tempColorMod2 = TempColorMod2;
 
+            if (_passGrid != null && _passGrid.LastSelected != null)
+            {
+                ((UIText)_passGrid.LastSelected).TextColor = Color.Gray;
+                _passGrid.LastSelected = _passGrid.GetGridItemByString(_tempPass);
+                if (_passGrid.LastSelected != null)
+                {
+                    ((UIText)_passGrid.GetGridItemByString(_tempPass)).TextColor = Color.Yellow;
+                }
+            }
+
+            if (_colorMods1Grid != null && _colorMods1Grid.LastSelected != null)
+            {
+                ((UIText)_colorMods1Grid.LastSelected).TextColor = Color.Gray;
+                _colorMods1Grid.LastSelected = _colorMods1Grid.GetGridItemByString(_tempColorMod1);
+                if (_colorMods1Grid.LastSelected != null)
+                {
+                    ((UIText)_colorMods1Grid.GetGridItemByString(_tempColorMod1)).TextColor = Color.Yellow;
+                }
+            }
+
+            if (_colorMods2Grid != null && _colorMods2Grid.LastSelected != null)
+            {
+                ((UIText)_colorMods2Grid.LastSelected).TextColor = Color.Gray;
+                _colorMods2Grid.LastSelected = _colorMods2Grid.GetGridItemByString(_tempColorMod2);
+                if (_colorMods2Grid.LastSelected != null)
+                {
+                    ((UIText)_colorMods2Grid.GetGridItemByString(_tempColorMod2)).TextColor = Color.Yellow;
+                }
+            }
+
             UpdateColorValues();
-            tempPlayer.GetModPlayer<MagicDyePlayer>().MagicDyeItem[_workingSlot] = new Item(MagicDye.GetShaderItemIDFromPass(_tempPass));
+            MagicDye.GetItemIDFromPass(_tempPass);
+            UIPlayer.MagicDyeItem[_workingSlot] = new Item(MagicDye.GetItemIDFromPass(_tempPass));
             if (_rPInterface != null)
             {
                 _rPInterface.Value = _tempPrimaryColor.X;
