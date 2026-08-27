@@ -99,15 +99,15 @@ namespace MagicDye.Content.Items.Dyes
         {
             string tooltipPrimaryColor = MagicDye.ClampColor(Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyePrimaryColors[DyeSlot]).Hex3();
             string tooltipSecondaryColor = MagicDye.ClampColor(Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyeSecondaryColors[DyeSlot]).Hex3();
-            TooltipLine primaryColorTooltip = new TooltipLine(Mod, "Magic Dye: Primary Color", $"{Language.GetText("Mods.MagicDye.UI.PrimaryColor").Value}: [c/{tooltipPrimaryColor}:{Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyePrimaryColors[DyeSlot].X} {Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyePrimaryColors[DyeSlot].Y} {Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyePrimaryColors[DyeSlot].Z}]");
+            TooltipLine primaryColorTooltip = new TooltipLine(Mod, "Magic Dye: Primary Color", $"{Language.GetText("Mods.MagicDye.UI.PrimaryColor").Value}: [c/{tooltipPrimaryColor}:{Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyePrimaryColors[DyeSlot].X.ToString("0.000")} {Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyePrimaryColors[DyeSlot].Y.ToString("0.000")} {Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyePrimaryColors[DyeSlot].Z.ToString("0.000")}]");
             tooltips.Add(primaryColorTooltip);
-            TooltipLine secondaryColorTooltip = new TooltipLine(Mod, "Magic Dye: Secondary Color", $"{Language.GetText("Mods.MagicDye.UI.SecondaryColor").Value}: [c/{tooltipSecondaryColor}:{Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyeSecondaryColors[DyeSlot].X} {Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyeSecondaryColors[DyeSlot].Y} {Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyeSecondaryColors[DyeSlot].Z}]");
+            TooltipLine secondaryColorTooltip = new TooltipLine(Mod, "Magic Dye: Secondary Color", $"{Language.GetText("Mods.MagicDye.UI.SecondaryColor").Value}: [c/{tooltipSecondaryColor}:{Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyeSecondaryColors[DyeSlot].X.ToString("0.000")} {Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyeSecondaryColors[DyeSlot].Y.ToString("0.000")} {Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyeSecondaryColors[DyeSlot].Z.ToString("0.000")}]");
             tooltips.Add(secondaryColorTooltip);
             TooltipLine passTooltip = new TooltipLine(Mod, "Magic Dye: Pass", $"{Language.GetText("Mods.MagicDye.UI.Pass").Value}: {Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyePasses[DyeSlot]}");
             tooltips.Add(passTooltip);
-            TooltipLine saturationTooltip = new TooltipLine(Mod, "Magic Dye: Saturation", $"{Language.GetText("Mods.MagicDye.UI.Saturation").Value}: {Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyeSaturation[DyeSlot]}");
+            TooltipLine saturationTooltip = new TooltipLine(Mod, "Magic Dye: Saturation", $"{Language.GetText("Mods.MagicDye.UI.Saturation").Value}: {Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyeSaturation[DyeSlot].ToString("0.000")}");
             tooltips.Add(saturationTooltip);
-            TooltipLine opacityTooltip = new TooltipLine(Mod, "Magic Dye: Opacity", $"{Language.GetText("Mods.MagicDye.UI.Opacity").Value}: {Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyeOpacity[DyeSlot]}");
+            TooltipLine opacityTooltip = new TooltipLine(Mod, "Magic Dye: Opacity", $"{Language.GetText("Mods.MagicDye.UI.Opacity").Value}: {Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyeOpacity[DyeSlot].ToString("0.000")}");
             tooltips.Add(opacityTooltip);
 
             if (Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyeColorMod1[DyeSlot] != "" && Main.LocalPlayer.GetModPlayer<MagicDyePlayer>().MagicDyeColorMod1[DyeSlot] != "None")

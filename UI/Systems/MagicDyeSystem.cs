@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.Audio;
 using Terraria.ID;
+using Terraria.DataStructures;
 
 namespace MagicDye.UI.Systems
 {
@@ -14,6 +15,7 @@ namespace MagicDye.UI.Systems
         internal UserInterface MagicDyeInterface;
         internal MagicDyeUI MagicDyeUI;
         private GameTime _lastUpdateUiGameTime;
+        public Point16 TileRef;
 
         public override void Load()
         {
@@ -22,10 +24,11 @@ namespace MagicDye.UI.Systems
             MagicDyeInterface = new UserInterface();
         }
 
-        internal void ShowMagicDyeUI()
+        internal void ShowMagicDyeUI(Point16 Topleft)
         {
             SoundEngine.PlaySound(SoundID.MenuOpen);
             MagicDyeInterface?.SetState(MagicDyeUI);
+            TileRef = Topleft;
         }
 
         internal void HideMagicDyeUI()
@@ -56,6 +59,11 @@ namespace MagicDye.UI.Systems
                     InterfaceScaleType.UI)
                 );
             }
+        }
+
+        public override void ClearWorld()
+        {
+            HideMagicDyeUI();
         }
 
         public override void Unload()

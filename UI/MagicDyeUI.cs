@@ -1534,6 +1534,7 @@ namespace MagicDye.UI
         {
             SoundEngine.PlaySound(SoundID.MenuTick);
             var UIPlayer = tempPlayer.GetModPlayer<MagicDyePlayer>();
+            string PrevoiusPass = _tempPass;
             if (UIPlayer.MagicDyePrimaryColors == null)
             {
                 UIPlayer.Initialize();
@@ -1814,8 +1815,11 @@ namespace MagicDye.UI
             }
 
             UpdateColorValues();
-            MagicDye.GetItemIDFromPass(_tempPass);
-            UIPlayer.MagicDyeItem[_workingSlot] = new Item(MagicDye.GetItemIDFromPass(_tempPass));
+            //I don't know why, but doing this keeps modded dyes from hard crashing the game when pasting it in more then once
+            if ( PrevoiusPass != _tempPass)
+            {
+                UIPlayer.MagicDyeItem[_workingSlot] = new Item(MagicDye.GetItemIDFromPass(_tempPass));
+            }
             if (_rPInterface != null)
             {
                 _rPInterface.Value = _tempPrimaryColor.X;
@@ -2390,23 +2394,34 @@ namespace MagicDye.UI
             }
         }
 
+
+        public bool IsInInteractionRangeToVat(Player player, int vatPointX, int vatPointY)
+        {
+            int num = (int)(((double)player.position.X + (double)player.width * 0.5) / 16.0);
+            int num2 = (int)(((double)player.position.Y + (double)player.height * 0.5) / 16.0);
+            Rectangle r = new Rectangle(vatPointX * 16, vatPointY * 16, 48, 48);
+
+            r.Inflate(-1, -1);
+            Point point = r.ClosestPointInRect(player.Center).ToTileCoordinates();
+            vatPointX = point.X;
+            vatPointY = point.Y;
+            return num >= vatPointX - Player.tileRangeX && num <= vatPointX + Player.tileRangeX && num2 >= vatPointY - Player.tileRangeY && num2 <= vatPointY + Player.tileRangeY;
+        }
+
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
             interfaceRef = ModContent.GetInstance<MagicDyeUISystem>();
-
-            //if (interfaceRef.MagicDyeInterface.CurrentState == interfaceRef.MagicDyeUI)
-            //{
-            //    Main.LocalPlayer.releaseInventory = false;
-            //}
-
-            // previously MagicDyeUI was set to let you close using the inventory key.
-            // this however isn't conducive to being able to use the research feature. so i commented it out.
-            //if (Main.LocalPlayer.controlInv && interfaceRef.MagicDyeInterface.CurrentState == interfaceRef.MagicDyeUI)
-            //{
-            //    OnCloseReset();
-            //    interfaceRef.HideMagicDyeUI();
-            //}
+            
+            if (interfaceRef.MagicDyeInterface.CurrentState == interfaceRef.MagicDyeUI)
+            {
+                if (!IsInInteractionRangeToVat(Main.LocalPlayer, interfaceRef.TileRef.X, interfaceRef.TileRef.Y) || !Main.tile[interfaceRef.TileRef.X, interfaceRef.TileRef.Y].HasTile)
+                {
+                    SoundEngine.PlaySound(SoundID.MenuClose);
+                    OnCloseReset();
+                    interfaceRef.HideMagicDyeUI();
+                }
+            }
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)

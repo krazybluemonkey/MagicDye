@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent.Drawing;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
@@ -49,7 +50,12 @@ namespace MagicDye.Content.Tiles
             MagicDyeUISystem uiRef = ModContent.GetInstance<MagicDyeUISystem>();
             if (uiRef.MagicDyeInterface.CurrentState != uiRef.MagicDyeUI)
             {
-                uiRef.ShowMagicDyeUI();
+                uiRef.ShowMagicDyeUI(new Point16(TileObjectData.TopLeft(i, j).X, TileObjectData.TopLeft(i, j).Y));
+            }
+            else
+            {
+                SoundEngine.PlaySound(SoundID.MenuClose);
+                uiRef.HideMagicDyeUI();
             }
             return true;
         }
