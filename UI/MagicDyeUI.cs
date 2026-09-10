@@ -1307,7 +1307,7 @@ namespace MagicDye.UI
             return SacrificeDye(ref _researchSlot.Item, out amountWeSacrificed);
         }
 
-        public unsafe ItemSacrificeResult SacrificeDye(ref Item item, out int amountWeSacrificed, bool returnRemainderToPlayer = false)
+        public ItemSacrificeResult SacrificeDye(ref Item item, out int amountWeSacrificed, bool returnRemainderToPlayer = false)
         {
             int amountNeededTotal = 0;
             int amountWeHave = 0;
