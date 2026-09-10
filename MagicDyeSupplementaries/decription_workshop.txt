@@ -1,0 +1,27 @@
+made for tModLoader v2026.6.3.6
+[hr]
+Where the unique Dyes from [URL='https://forums.terraria.org/index.php?threads/dye-hard.70392/']Dye Hard[/URL] now reside. these do not inherently need Magic Dye to function but add to it if both are active.
+
+See the Terraria Forums post (linked below) for a detailed list of dyes & templates carried over from Dye hard.
+
+[u][b]Changlog[/b][/u]
+[list]
+Initial Release (9/10/20226)
+[/list]
+
+[U][B]Credits[/B][/U]
+Relogic: for making a wonderfully fun game.
+tModLoader team: for making a wonderfully fun game all that much better and the example mod.
+Alastair Aitchison, for their sepia tone shader code, which can be found [URL='https://alastaira.wordpress.com/2013/12/02/sepia-shader/']here.[/URL]
+Petri Wilhelmsen, for their gray scale shader code, which can be found [URL='https://digitalerr0r.net/2009/04/22/xna-shader-programming-tutorial-11-post-process-grayscale/']here.[/URL]
+Maxim Kartavenkov, for their posterization shader code, which can be found [URL='https://web.archive.org/web/20210518102538/https://www.codeproject.com/Articles/495631/Video-Effects-in-Direct3D-Part-1']here.[/URL]
+Tamir Khason, for the code used in the determination dyes, which can be found [URL='https://web.archive.org/web/20190924074209/http://blogs.microsoft.co.il/tamir/2008/06/17/hlsl-pixel-shader-effects-tutorial/']here.[/URL]
+
+[U][B]Compatibility and Known Bugs[/U][/B]
+Magic Dye: Supplementaries does not have any bugs to my testing. if any crop up, [url=https://github.com/krazybluemonkey/MagicDye/issues]please report them here[/url].
+
+[U][B]Downloads and Links[/B][/U]
+github:
+[URL='https://github.com/krazybluemonkey/MagicDye']krazybluemonkey/MagicDye[/URL]
+Terraria Forums:
+[url=][/url]

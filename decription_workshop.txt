@@ -1,0 +1,75 @@
+made for tModLoader v2026.6.3.6
+[hr]
+The successor to [URL='https://forums.terraria.org/index.php?threads/dye-hard.70392/']Dye Hard[/URL]. Magic Dye is a mod that introduces 32 fully customizable dyes.
+
+[B][U]Alchemic Dye Station[/U][/B]
+[IMG]https://i.ibb.co/Wv4gv88J/Alchemic-Dye-Station.gif[/IMG]
+[IMG]https://terraria.wiki.gg/images/Dye_Vat.png[/IMG] + [IMG]https://terraria.wiki.gg/images/Any_Gold_Bar.gif[/IMG]x4 + [IMG]https://terraria.wiki.gg/images/Diamond.png[/IMG] + [IMG]https://terraria.wiki.gg/images/Fallen_Star.gif[/IMG]x10 @ any [IMG]https://terraria.wiki.gg/images/Work_Bench.png?3cd713[/IMG] = [IMG]https://i.ibb.co/CpWpkwnZ/Alchemic-Dye-Station-Item.png[/IMG]
+The heart & soul of the mod. It's primary function is allowing the player to customize their Magic Dyes.
+It can be considered a direct upgrade from the Dye Vat, as it both functions as one and has a 33% chance of not consuming dye ingredients on craft.
+
+[B][U]Magic Dye[/U][/B]
+[IMG]https://i.ibb.co/FkqvKb6F/Magic-Dye.png[/IMG]
+[IMG]https://terraria.wiki.gg/images/Fallen_Star.gif[/IMG] + [IMG]https://terraria.wiki.gg/images/Bottled_Water.png[/IMG] @ [IMG]https://i.ibb.co/CpWpkwnZ/Alchemic-Dye-Station-Item.png[/IMG] = [IMG]https://i.ibb.co/FkqvKb6F/Magic-Dye.png[/IMG]x2
+The body of the mod, Magic Dyes can take on the properties of any other dye when customized through the Alchemic Dye Station. Using what I dubbed a slot system, there are 32 available per-player.
+In-game, Magic Dyes match the players' customization options in inventory/world. The tooltip also shows the the customization options of a given slot.
+[IMG]https://i.ibb.co/SwvqJ1B4/dye-preview.png[/IMG]
+
+[B][U]Customizing[/U][/B]
+As seen in the previews, the player will have access to a good portion of options. All buttons can be edited by left clicking, right clicking, or scrolling on them.
+most are self explanatory but a few aren't.
+[IMG]https://i.ibb.co/bMhbcj7v/interface-preview.png[/IMG]
+[B]Pass[/B]
+A term used by Shaders, it is a type of programming function done by the shader. Terraria dyes use a single pass to determine their behavior.
+I couldn't think of a good way to communicate this to the player otherwise, sorry
+
+[B]Color Modifiers[/B]
+This is like a secondary layer to dyes i came up with to replicate the functions of something like Shifting Rainbow Acid Dye from Dye Hard. These modify colors on the fly in one way or another. There is only 1 by default, Team Dye's.
+Other mods can add their own.[URL='https://github.com/krazybluemonkey/MagicDye/wiki/Color-Modifiers-introduction-and-Adding-Your-Own']see this wiki article for that.[/URL]
+
+[B]Saturation & Opacity[/B]
+While self explanatory for vanilla dyes, modded dyes may use these in different way to modify the dyes' behavior.
+mess with em and find out!
+
+[B][U]Researching[/U][/B]
+Borrowing 1.4's journey mode mechanics, one must have dyes researched before they can use their components with a Magic Dye.
+Researching unlocks both the features of a given dye and a template, which is represented by the list on the right.
+Templates serve as a way to get customization options from an existing dye. useful for when you don't know how a given dye works.
+While the interface has it's own research area, it is using the journey mode list from your Player. So journey mode Players research on a given dye item will sync between them.
+[IMG]https://i.ibb.co/bgPQP2vP/research.gif[/IMG]
+
+[B][U]Changing Slots[/U][/B]
+To get a Magic Dye of a different slot, place one in the research area. the research button will then act as a slot changer.
+You can left click to go up 1, right click to go down 1, or use scroll to change quicker.
+[IMG]https://i.ibb.co/r2nnGQTV/slot-swapping.gif[/IMG]
+
+[B][U]Templates[/U][/B]
+Due to the complexity of the UI, I figured having an easy way to share customizations was in order. Taking inspiration from the player template system, I opted for something similar. Thus dye templates.
+
+[img]https://i.ibb.co/Ds76QvK/copy-pasted-tempaltes.gif[/img]
+
+fairly easy to use, you just need to have template JSON in your clipboard and the dyes corresponding to the pass & color modifier templates to use them with the paste button.
+You can find templates based on Dye Hard's dyes on the Forums post linked below.
+[hr]
+
+[u][b]Changlog[/b][/u]
+[list]
+Initial Release (9/10/20226)
+[/list]
+
+[U][B]Credits[/B][/U]
+Relogic: for making a wonderfully fun game.
+tModLoader team: for making a wonderfully fun game all that much better and the example mod.
+Brian Rogers, for JSON helper code, which can be found [URL='https://stackoverflow.com/questions/53223517']here.[/URL]
+
+[U][B]Compatibility and Known Bugs[/U][/B]
+As far as I've tested, most modded dyes work fine with Magic Dye. The handful that don't are either doing something different or have additional drawn effects. which I do not know how to make apply to Magic Dyes. Sorry for that.
+There is no multiplayer compatibility whatsoever as i do not know how to do that, apologies.
+Sometimes altering a Magic Dye slot in the UI will break the players' Magic Dye in that slot. I don't have a solution for that either.
+[URL='https://github.com/krazybluemonkey/MagicDye/issues']check out the issues on github to see if any other issues apply to you or if they are known.[/URL]
+
+[U][B]Downloads and Links[/B][/U]
+github:
+[URL='https://github.com/krazybluemonkey/MagicDye']krazybluemonkey/MagicDye[/URL]
+Terraria Forums:
+[url=][/url]

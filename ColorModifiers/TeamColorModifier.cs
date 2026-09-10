@@ -3,10 +3,9 @@ using Terraria;
 using System;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
-using MagicDyeSupplementaries.Content.Items.Dyes;
 using Terraria.DataStructures;
 
-namespace MagicDyeSupplementaries.ColorModifiers
+namespace MagicDye.ColorModifiers
 {
     public class Team : ModSystem
     {
@@ -36,7 +35,7 @@ namespace MagicDyeSupplementaries.ColorModifiers
             }
             if (player == null || player.team == 0 && player.team > Main.teamColor.Length)
             {
-                return (new Vector3(-100, -100, -100), new Vector3(-100, -100, -100), -100, -100);
+                return (new Vector3(1.0f, 1.0f, 1.0f), new Vector3(1.0f, 1.0f, 1.0f), 1.0f, 1.0f);
             }
 
             newVector = new Vector3(Main.teamColor[player.team].R, Main.teamColor[player.team].G, Main.teamColor[player.team].B);
