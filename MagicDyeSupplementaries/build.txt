@@ -1,3 +1,4 @@
 displayName = Magic Dye: Supplementaries
 author = KBM-Quine
-version = 0.1
+version = 1.0
+homepage = https://forums.terraria.org/index.php?threads/magic-dye-v1-0-magic-dye-supplementaries-v1-0-fully-customizable-dyes-more.151796/

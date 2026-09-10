@@ -5,4 +5,5 @@ The spiritual successor to the Dye Hard mod!
 - Adds the Magic Dye Vat, a pre-boss dye vat upgrade that has a 33% chance not to consume crafted dye ingredients. It's the heart of the mod.
 - A Dye research system that reuses journey mode research! needed for Magic Dye customization options.
 - Compatible with most modded dyes. (to a degree, see homepage for details)
-- Custom "Color Modifier" system to add even more customization options. Modders can add their own. (see homepage for details)
+- Custom "Color Modifier" system to add even more customization options. Modders can add their own.
+see homepage for more details
