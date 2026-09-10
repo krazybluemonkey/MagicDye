@@ -72,4 +72,4 @@ Sometimes altering a Magic Dye slot in the UI will break the players' Magic Dye 
 github:
 [URL='https://github.com/krazybluemonkey/MagicDye']krazybluemonkey/MagicDye[/URL]
 Terraria Forums:
-[url=][/url]
+[url=https://forums.terraria.org/index.php?threads/magic-dye-v1-0-magic-dye-supplementaries-v1-0-fully-customizable-dyes-more.151796/]https://forums.terraria.org/index.php?threads/magic-dye-v1-0-magic-dye-supplementaries-v1-0-fully-customizable-dyes-more.151796/[/url]

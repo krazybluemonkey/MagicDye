@@ -24,4 +24,4 @@ Magic Dye: Supplementaries does not have any bugs to my testing. if any crop up,
 github:
 [URL='https://github.com/krazybluemonkey/MagicDye']krazybluemonkey/MagicDye[/URL]
 Terraria Forums:
-[url=][/url]
+[url=https://forums.terraria.org/index.php?threads/magic-dye-v1-0-magic-dye-supplementaries-v1-0-fully-customizable-dyes-more.151796/]https://forums.terraria.org/index.php?threads/magic-dye-v1-0-magic-dye-supplementaries-v1-0-fully-customizable-dyes-more.151796/[/url]
